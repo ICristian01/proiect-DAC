@@ -1,0 +1,24 @@
+<div class="background-image">
+  <h1 class="horizontalCenter">welcome!</h1>
+  <div class="horizontalCenter">
+    <form class="loginStuff">
+      <h3>Login</h3>
+      <label>email:</label><br />
+
+      <input
+        type="text"
+        #box
+        (keyup)="getValue(box.value)"
+        name="loginEmail"
+      /><br />
+      <p>Box value is: {{ userEmail }}</p>
+      <br /><br />
+
+      <label>password:</label><br />
+      <input type="password" /><br /><br />
+      <label>remember me </label>
+      <input type="checkbox" /><br /><br />
+      <input class="submit" type="submit" value="Submit" />
+    </form>
+  </div>
+</div>

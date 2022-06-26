@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin:0;
+    padding:0;
+}
+.horizontalCenter{
+    color:bisque;
+    text-align: center;
+}
+.loginStuff{
+    background-color: rgba(19, 19, 19, 0.932);
+    color:bisque;
+    margin-left:35%;
+    margin-right: 35%;
+}
+
+.background-image{
+    background-image: url("assets/images/login3.png");
+    //background-size:cover;
+    //background-repeat: no-repeat;
+    height:100vh;
+    
+}
