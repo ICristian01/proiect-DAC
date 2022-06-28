@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AddNewComponent } from 'src/app/features/add-new/add-new.component';
 import { Movie } from 'src/app/features/movie';
 import { MovieService } from 'src/app/features/movie.service';
