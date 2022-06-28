@@ -6,17 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  userEmail:string;
-  getValue(value:string)
-  {
-  console.warn(value);
-  this.userEmail=value;
-  }
+  email:string;
+  password:string;
+  rememberMe:boolean;
 
   constructor() {
-    this.userEmail="";
+    this.email="";
+    this.password="";
+    this.rememberMe=false;
    }
-
+   getEmail(email:string){
+    this.email=email;
+  }
+  getPassword(password:string){
+    this.password=password;
+  }
+  getRememberMe(rememberMe:boolean){
+    this.rememberMe=rememberMe;
+    console.log(this.rememberMe);
+  }
   ngOnInit(): void {
   }
 

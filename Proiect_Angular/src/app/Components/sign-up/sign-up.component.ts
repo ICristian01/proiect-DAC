@@ -1,4 +1,3 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,12 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  repeatedPasswordMessage:string;
+  email:string;
+  password:string;
+  firstName:string;
+  lastName:string;
+
+  emailMessage:string;
   passwordMessage:string;
+  confirmPasswordMessage:string;
+  
+
   constructor() {
-    this.repeatedPasswordMessage="  ";
+    this.email="";
+    this.password="";
+    this.firstName="";
+    this.lastName="";
+    this.confirmPasswordMessage="";
     this.passwordMessage="";
+    this.emailMessage="";
    }
+   
    isNumber(str: string): boolean {
     if (typeof str !== 'string') {
       return false;
@@ -32,6 +45,20 @@ export class SignUpComponent implements OnInit {
     if(character.toLowerCase()>='a' && character.toLowerCase()<='z')
     return true;
     return false;
+  }
+  
+
+  checkEmail(email:string)
+  {
+    if(!email.includes("@") || !email.includes(".") || 
+    !this.isLetter(email[email.length-1]) || email.includes(" "))
+    {
+    this.emailMessage="the email is not valid.";
+    }
+    else
+    {
+      this.emailMessage="";
+    }
   }
   CheckPassword(password:string){
     let currentMessage:string = "The password requires:"
@@ -59,23 +86,23 @@ export class SignUpComponent implements OnInit {
     }
     if(!hasSixCharacters)
     {
-      currentMessage += " at least 6 characters";
+      currentMessage += " at least 6 characters;";
     }
     if(!hasUpper)
     {
-      currentMessage += ", one capital letter";
+      currentMessage += "one capital letter;";
     }
     if(!hasLower)
     {
-      currentMessage += ", one small letter";
+      currentMessage += " one small letter;";
     }
     if(!hasDigit)
     {
-      currentMessage += ", one digit";
+      currentMessage += " one digit;";
     }
     if(!hasSpecial)
     {
-      currentMessage += ", one special character.";
+      currentMessage += " one special character.";
     }
 
     if(currentMessage=="The password requires:")
@@ -85,20 +112,32 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  ComparePasswords(password:string, repeatedPassword:string)
+  ComparePasswords(password:string, confirmPassword:string)
   {
-    if(password === repeatedPassword)
+    if(password === confirmPassword)
     {
-      this.repeatedPasswordMessage="All good here :D";
+      this.confirmPasswordMessage="All good here :D";
       
     }
     else
     {
-      this.repeatedPasswordMessage="Passwords don't match!";
+      this.confirmPasswordMessage="Passwords don't match!";
     }
   }
 
-
+  getEmail(email:string){
+    this.email=email;
+  }
+  getPassword(password:string){
+    this.password=password;
+  }
+  getFirstName(firstName:string){
+    this.firstName=firstName;
+  }
+  getLastName(lastName:string){
+    this.lastName=lastName;
+  }
+  
   ngOnInit(): void {
   }
 

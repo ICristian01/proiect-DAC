@@ -1,35 +1,47 @@
-<div class="background-image">
-  <h1 class="horizontalCenter">welcome!</h1>
-  <div class="horizontalCenter">
-    <form class="loginStuff">
-      <h3>Login</h3>
-      <label>Email:</label><br />
-      <input type="text" name="loginEmail" /><br />
-      <br /><br />
+<div class="horizontalCenter">
+  <form class="loginStuff">
+    <h3>Login</h3>
+    <label>Email:</label><br />
+    <input
+      type="text"
+      #email
+      (keyup)="getEmail(email.value)"
+      (keyup)="checkEmail(email.value)"
+    /><br />
+    <p>{{ emailMessage }}</p>
+    <br /><br />
 
-      <label>Password:</label><br />
-      <input
-        type="password"
-        #password
-        (keyup)="CheckPassword(password.value)"
-        (keyup)="ComparePasswords(password.value, repeatedPassword.value)"
-        name="password"
-      /><br /><br />
-      <p color="red">{{ passwordMessage }}</p>
-      <label>Repeat password:</label><br />
-      <input
-        type="password"
-        #repeatedPassword
-        (keyup)="ComparePasswords(password.value, repeatedPassword.value)"
-        name="repeatedPassword"
-      /><br /><br />
-      <p color="red">{{ repeatedPasswordMessage }}</p>
+    <label>Password:</label><br />
+    <input
+      type="password"
+      #password
+      (keyup)="CheckPassword(password.value)"
+      (keyup)="ComparePasswords(password.value, confirmPassword.value)"
+      (keyup)="getPassword(password.value)"
+    /><br /><br />
+    <p color="red">{{ passwordMessage }}</p>
+    <label>Repeat password:</label><br />
+    <input
+      type="password"
+      #confirmPassword
+      (keyup)="ComparePasswords(password.value, confirmPassword.value)"
+    /><br /><br />
+    <p color="red">{{ confirmPasswordMessage }}</p>
 
-      <label>First name: </label><br />
-      <input type="text" #FirstName name="FirstName" /><br /><br />
-      <label>Last name: </label><br />
-      <input type="text" #LastName name="LastName" /><br /><br />
-      <input class="submit" type="submit" value="Submit" />
-    </form>
-  </div>
+    <label>First name: </label><br />
+    <input
+      type="text"
+      #firstName
+      name
+      (keyup)="getFirstName(firstName.value)"
+    /><br /><br />
+    <label>Last name: </label><br />
+    <input
+      type="text"
+      #lastName
+      name
+      (keyup)="getLastName(lastName.value)"
+    /><br /><br />
+    <input class="submit" type="submit" value="Submit" />
+  </form>
 </div>

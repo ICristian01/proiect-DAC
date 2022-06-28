@@ -1,24 +1,26 @@
-<div class="background-image">
-  <h1 class="horizontalCenter">welcome!</h1>
-  <div class="horizontalCenter">
-    <form class="loginStuff">
-      <h3>Login</h3>
-      <label>email:</label><br />
+<div class="horizontalCenter">
+  <form class="loginStuff">
+    <h3>Login</h3>
+    <label>email:</label><br />
 
-      <input
-        type="text"
-        #box
-        (keyup)="getValue(box.value)"
-        name="loginEmail"
-      /><br />
-      <p>Box value is: {{ userEmail }}</p>
-      <br /><br />
+    <input type="text" #email (keyup)="getEmail(email.value)" /><br />
+    <br /><br />
 
-      <label>password:</label><br />
-      <input type="password" /><br /><br />
-      <label>remember me </label>
-      <input type="checkbox" /><br /><br />
-      <input class="submit" type="submit" value="Submit" />
-    </form>
-  </div>
+    <label>password:</label><br />
+    <input
+      type="password"
+      #password
+      (keyup)="getPassword(password.value)"
+    /><br /><br />
+    <label>remember me </label>
+    <input
+      type="checkbox"
+      (change)="getRememberMe(rememberMe.checked)"
+      #rememberMe
+      id="rememberMeCheckbox"
+    /><br /><br />
+    <p>Don't have already an account?</p>
+    <button>Register here</button>
+    <input class="submit" type="submit" value="Submit" />
+  </form>
 </div>
