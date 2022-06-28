@@ -1,1 +1,46 @@
-<p>dashboard works!</p>
+<div class="container">
+    <div id="header">
+      <button mat-raised-button color="primary" (click)="openAddModal()">
+        Add new movie
+      </button>
+  
+      <button mat-raised-button color="primary" (click)="sortByTitle()">
+        Sort by age
+      </button>
+  
+      <div id="search-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Search for a movie</mat-label>
+          <input matInput type="text" [(ngModel)]="searchValue" />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" (click)="searchMovie()">
+          Search
+        </button>
+      </div>
+    </div>
+  
+    <table *ngIf="movies.length > 0">
+      <tr>
+        <th>Title</th>
+        <th>Release Year</th>
+        <th>Director</th>
+        <th>Budget</th>
+        <th>Rating</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let movie of movies">
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.releaseYear }}</td>
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.budget }}</td>
+        <td>{{movie.rating}}</td>
+        <th>
+          <button mat-icon-button (click)="deleteMovie(movie)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </th>
+      </tr>
+    </table>
+  </div>
+  
