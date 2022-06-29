@@ -1,41 +1,43 @@
-<div class="container">
+<div class="background-image2">
+  <br />
+  <div class="container">
     <div id="header">
-      <button mat-raised-button color="primary" (click)="openAddModal()">
+      <button mat-raised-button color="warn" (click)="openAddModal()">
         Add new movie
       </button>
-  
-      <button mat-raised-button color="primary" (click)="sortByTitle()">
+
+      <button mat-raised-button color="warn" (click)="sortByTitle()">
         Sort by Title
       </button>
 
-      <button mat-raised-button color="primary" (click)="sortByYear()">
+      <button mat-raised-button color="warn" (click)="sortByYear()">
         Sort by Release Year
       </button>
 
-      <button mat-raised-button color="primary" (click)="sortByDirector()">
+      <button mat-raised-button color="warn" (click)="sortByDirector()">
         Sort by Director
       </button>
 
-      <button mat-raised-button color="primary" (click)="sortByBudget()">
+      <button mat-raised-button color="warn" (click)="sortByBudget()">
         Sort by Budget
       </button>
 
-      <button mat-raised-button color="primary" (click)="sortByRating()">
+      <button mat-raised-button color="warn" (click)="sortByRating()">
         Sort by Rating
       </button>
-  
+
       <div id="search-container">
         <mat-form-field appearance="fill">
           <mat-label>Search for a movie</mat-label>
           <input matInput type="text" [(ngModel)]="searchValue" />
         </mat-form-field>
-  
-        <button mat-raised-button color="primary" (click)="searchMovie()">
+
+        <button mat-raised-button color="warn" (click)="searchMovie()">
           Search
         </button>
       </div>
     </div>
-  
+
     <table *ngIf="movies.length > 0">
       <tr>
         <th>Title</th>
@@ -50,7 +52,7 @@
         <td>{{ movie.releaseYear }}</td>
         <td>{{ movie.director }}</td>
         <td>{{ movie.budget }}</td>
-        <td>{{movie.rating}}</td>
+        <td>{{ movie.rating }}</td>
         <th>
           <button mat-icon-button (click)="deleteMovie(movie)">
             <mat-icon>delete</mat-icon>
@@ -59,4 +61,4 @@
       </tr>
     </table>
   </div>
-  
+</div>

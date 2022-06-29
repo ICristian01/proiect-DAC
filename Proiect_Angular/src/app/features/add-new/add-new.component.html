@@ -6,7 +6,7 @@
       <mat-label>Enter the movie title</mat-label>
       <input
         matInput
-        placeholder="movie@example.com"
+        placeholder="type the title here"
         formControlName="movieTitle"
         required
       />
@@ -33,8 +33,12 @@
         formControlName="movieDirector"
         required
       />
-      <mat-error *ngIf="movieDirector?.hasError('required')">Field is required!</mat-error>
-      <mat-error *ngIf="movieDirector?.hasError('not-human-name')">The name is not human!</mat-error>
+      <mat-error *ngIf="movieDirector?.hasError('required')"
+        >Field is required!</mat-error
+      >
+      <mat-error *ngIf="movieDirector?.hasError('not-human-name')"
+        >The name is not human!</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -49,7 +53,6 @@
       <mat-error *ngIf="movieBudget?.invalid">Error!</mat-error>
     </mat-form-field>
 
-
     <mat-form-field appearance="fill">
       <mat-label>Enter the rating</mat-label>
       <input
@@ -59,9 +62,10 @@
         formControlName="movieRating"
         required
       />
-      <mat-error *ngIf="movieRating?.hasError('required')">Field is required!</mat-error>
+      <mat-error *ngIf="movieRating?.hasError('required')"
+        >Field is required!</mat-error
+      >
     </mat-form-field>
-
   </form>
 </mat-dialog-content>
 

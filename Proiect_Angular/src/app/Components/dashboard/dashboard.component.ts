@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AddNewComponent } from 'src/app/features/add-new/add-new.component';
 import { Movie } from 'src/app/features/movie';
@@ -10,12 +11,14 @@ import { MovieService } from 'src/app/features/movie.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  DashBoardForm:FormGroup;
   movies: Movie[] = [];
 
-  searchValue: string = '';
+  searchValue: string = ' ';
 
-  constructor(private movieService: MovieService, public dialog: MatDialog) {}
+  constructor(private movieService: MovieService, public dialog: MatDialog) {
+    this.DashBoardForm=new FormGroup({search:new FormControl(null,null)});
+  }
 
   ngOnInit(): void {
     this.movies = this.movieService.getMovies();
@@ -43,7 +46,7 @@ export class DashboardComponent implements OnInit {
   sortByRating() {
     this.movies = this.movieService.sortByRating();
   }
-  
+
   searchMovie() {
     this.movies = this.movieService.searchMovie(this.searchValue);
   }
@@ -51,4 +54,5 @@ export class DashboardComponent implements OnInit {
   deleteMovie(movie: Movie) {
     this.movies = this.movieService.deleteMovie(movie);
   }
+
 }

@@ -28,7 +28,7 @@ export class AddNewComponent implements OnInit {
       movieReleaseYear: new FormControl(null, Validators.required),
       movieDirector: new FormControl(null, [Validators.required, CustomValidators.humanName]),
       movieBudget: new FormControl(null, Validators.required),
-      movieRating: new FormControl(null, [Validators.required, CustomValidators.specificPrice]),
+      movieRating: new FormControl(null, Validators.required),
     });
   }
 

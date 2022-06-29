@@ -19,14 +19,22 @@
 }
 .background-image{
     background-image: url("assets/images/login3.png");
+    
     //background-size:cover;
     //background-repeat: no-repeat;
     height:100vh;
     
 }
+.background-image2{
+    background-image: url("assets/images/seats.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height:100vh;
+}
 .mediumFormText{
     color:bisque;
     font-size: 20px;
+    
 }
 .smallFormText{
     color:bisque;

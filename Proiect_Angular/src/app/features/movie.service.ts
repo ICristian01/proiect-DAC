@@ -11,9 +11,38 @@ export class MovieService {
       title: 'Inception',
       releaseYear: 2010,
       director: 'Christopher Nolan',
-      budget: 200000,
-      rating: 8.5
+      budget: 160000000,
+      rating: 7.6
     },
+    {
+      title: '127 Hours',
+      releaseYear: 2010,
+      director: 'Danny Boyle',
+      budget: 18000000,
+      rating: 7.6
+    },
+    {
+      title: 'The Pursuit of Happyness',
+      releaseYear: 2006,
+      director: 'Gabriele Muccino',
+      budget: 55000000,
+      rating: 8
+    },
+    {
+      title: 'Avatar',
+      releaseYear: 2009,
+      director: 'James Cameron',
+      budget: 237000000,
+      rating: 7.8
+    },
+    {
+      title: 'The Shawshank Redemption',
+      releaseYear: 1994,
+      director: 'Frank Darabont',
+      budget: 25000000,
+      rating: 9.3
+    },
+    
   ];
     getMovies(): Movie[] {
       return this.movies;
