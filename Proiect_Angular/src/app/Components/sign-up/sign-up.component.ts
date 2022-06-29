@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,13 +12,13 @@ export class SignUpComponent implements OnInit {
   password:string;
   firstName:string;
   lastName:string;
-
+  authErrorMessage:string;
   emailMessage:string;
   passwordMessage:string;
   confirmPasswordMessage:string;
   
 
-  constructor() {
+  constructor(private router:Router) {
     this.email="";
     this.password="";
     this.firstName="";
@@ -25,6 +26,7 @@ export class SignUpComponent implements OnInit {
     this.confirmPasswordMessage="";
     this.passwordMessage="";
     this.emailMessage="";
+    this.authErrorMessage="";
    }
    
    isNumber(str: string): boolean {
@@ -46,14 +48,25 @@ export class SignUpComponent implements OnInit {
     return true;
     return false;
   }
-  
+  GoToMovies(){
+    if(this.emailMessage =="" && this.password!="✅Password good." 
+    && this.firstName!="" && this.lastName!="" && this.confirmPasswordMessage =="✅Passwords match")
+    {
+      this.authErrorMessage="";
+      this.router.navigateByUrl('movies');
+    }
+    else
+    {
+      this.authErrorMessage="❌All fields must pe valid!";
+    }
+   }
 
   checkEmail(email:string)
   {
     if(!email.includes("@") || !email.includes(".") || 
     !this.isLetter(email[email.length-1]) || email.includes(" "))
     {
-    this.emailMessage="the email is not valid.";
+    this.emailMessage="❌The email is not valid.";
     }
     else
     {
@@ -61,7 +74,7 @@ export class SignUpComponent implements OnInit {
     }
   }
   CheckPassword(password:string){
-    let currentMessage:string = "The password requires:"
+    let currentMessage:string = "❌The password requires:"
     let hasSixCharacters:boolean=password.length>=6;
     let hasUpper:boolean = false;
     let hasLower:boolean = false;
@@ -105,8 +118,8 @@ export class SignUpComponent implements OnInit {
       currentMessage += " one special character.";
     }
 
-    if(currentMessage=="The password requires:")
-    {this.passwordMessage="Password is good! :)";}
+    if(currentMessage=="❌The password requires:")
+    {this.passwordMessage="✅Password good.";}
     else{
       this.passwordMessage=currentMessage;
     }
@@ -116,12 +129,12 @@ export class SignUpComponent implements OnInit {
   {
     if(password === confirmPassword)
     {
-      this.confirmPasswordMessage="All good here :D";
+      this.confirmPasswordMessage="✅Passwords match";
       
     }
     else
     {
-      this.confirmPasswordMessage="Passwords don't match!";
+      this.confirmPasswordMessage="❌Passwords don't match!";
     }
   }
 

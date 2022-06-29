@@ -2,17 +2,21 @@
     margin:0;
     padding:0;
 }
+
 .horizontalCenter{
-    color:bisque;
     text-align: center;
 }
 .loginStuff{
     background-color: rgba(19, 19, 19, 0.932);
-    color:bisque;
     margin-left:35%;
     margin-right: 35%;
 }
-
+.form2{
+    background-color: rgba(19, 19, 19, 0.932);
+    margin-left:35%;
+    margin-right: 35%;
+    padding:25px;
+}
 .background-image{
     background-image: url("assets/images/login3.png");
     //background-size:cover;
@@ -20,6 +24,21 @@
     height:100vh;
     
 }
+.mediumFormText{
+    color:bisque;
+    font-size: 20px;
+}
+.smallFormText{
+    color:bisque;
+    font-size: 15px;
+
+}
+.authentificationWarningText{
+    color:rgb(181, 168, 255);
+    font-size: 15px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

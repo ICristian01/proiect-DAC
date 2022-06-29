@@ -1,26 +1,41 @@
-<div class="horizontalCenter">
-  <form class="loginStuff">
-    <h3>Login</h3>
-    <label>email:</label><br />
-
-    <input type="text" #email (keyup)="getEmail(email.value)" /><br />
+<div class="background-image">
+  <div class="horizontalCenter">
     <br /><br />
+    <form class="loginStuff">
+      <br />
+      <br />
+      <h3>Login</h3>
+      <br /><br />
+      <label class="mediumFormText">Email</label><br />
 
-    <label>password:</label><br />
-    <input
-      type="password"
-      #password
-      (keyup)="getPassword(password.value)"
-    /><br /><br />
-    <label>remember me </label>
-    <input
-      type="checkbox"
-      (change)="getRememberMe(rememberMe.checked)"
-      #rememberMe
-      id="rememberMeCheckbox"
-    /><br /><br />
-    <p>Don't have already an account?</p>
-    <button>Register here</button>
-    <input class="submit" type="submit" value="Submit" />
-  </form>
+      <input type="text" #email (keyup)="getEmail(email.value)" /><br />
+      <br /><br />
+      <label class="mediumFormText">Password</label><br />
+      <input
+        type="password"
+        #password
+        (keyup)="getPassword(password.value)"
+      /><br /><br />
+      <label class="smallFormText">remember me </label>
+      <input
+        type="checkbox"
+        (change)="getRememberMe(rememberMe.checked)"
+        #rememberMe
+        id="rememberMeCheckbox"
+      /><br /><br />
+    </form>
+    <div class="form2">
+      <p class="authentificationWarningText">{{ authErrorMessage }}</p>
+      <button mat-raised-button color="primary" (click)="GoToMovies()">
+        Submit
+      </button>
+      <br />
+      <br />
+      <br />
+      <span class="smallFormText">Don't have already an account? </span>
+      <button mat-raised-button color="secondary" (click)="GoToRegister()">
+        Register here
+      </button>
+    </div>
+  </div>
 </div>

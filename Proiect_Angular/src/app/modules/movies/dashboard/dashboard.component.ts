@@ -51,5 +51,4 @@ export class DashboardComponent implements OnInit {
   deleteMovie(movie: Movie) {
     this.movies = this.movieService.deleteMovie(movie);
   }
-
 }

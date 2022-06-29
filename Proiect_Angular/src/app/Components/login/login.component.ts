@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,28 @@ export class LoginComponent implements OnInit {
   password:string;
   rememberMe:boolean;
 
-  constructor() {
+  authErrorMessage:string;
+  constructor(private router:Router) {
     this.email="";
     this.password="";
+    this.authErrorMessage="";
     this.rememberMe=false;
+   }
+   ngOnInit(): void {
+  }
+   GoToRegister(){
+    this.router.navigate(['register']);
+   }
+   GoToMovies(){
+    if(this.email!="" && this.password!="")
+    {
+      this.authErrorMessage="";
+      this.router.navigateByUrl('movies');
+    }
+    else
+    {
+      this.authErrorMessage="❌None of these fields can be empty!";
+    }
    }
    getEmail(email:string){
     this.email=email;
@@ -25,7 +44,6 @@ export class LoginComponent implements OnInit {
     this.rememberMe=rememberMe;
     console.log(this.rememberMe);
   }
-  ngOnInit(): void {
-  }
+  
 
 }

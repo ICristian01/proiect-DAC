@@ -1,47 +1,60 @@
-<div class="horizontalCenter">
-  <form class="loginStuff">
-    <h3>Login</h3>
-    <label>Email:</label><br />
-    <input
-      type="text"
-      #email
-      (keyup)="getEmail(email.value)"
-      (keyup)="checkEmail(email.value)"
-    /><br />
-    <p>{{ emailMessage }}</p>
+<div class="background-image">
+  <div class="horizontalCenter">
     <br /><br />
+    <form class="loginStuff">
+      <br />
+      <br />
+      <h3>Register</h3>
+      <br /><br />
+      <label class="mediumFormText">Email</label><br />
+      <input
+        type="text"
+        #email
+        (keyup)="getEmail(email.value)"
+        (keyup)="checkEmail(email.value)"
+      /><br />
+      <p class="authentificationWarningText">{{ emailMessage }}</p>
+      <br /><br />
 
-    <label>Password:</label><br />
-    <input
-      type="password"
-      #password
-      (keyup)="CheckPassword(password.value)"
-      (keyup)="ComparePasswords(password.value, confirmPassword.value)"
-      (keyup)="getPassword(password.value)"
-    /><br /><br />
-    <p color="red">{{ passwordMessage }}</p>
-    <label>Repeat password:</label><br />
-    <input
-      type="password"
-      #confirmPassword
-      (keyup)="ComparePasswords(password.value, confirmPassword.value)"
-    /><br /><br />
-    <p color="red">{{ confirmPasswordMessage }}</p>
-
-    <label>First name: </label><br />
-    <input
-      type="text"
-      #firstName
-      name
-      (keyup)="getFirstName(firstName.value)"
-    /><br /><br />
-    <label>Last name: </label><br />
-    <input
-      type="text"
-      #lastName
-      name
-      (keyup)="getLastName(lastName.value)"
-    /><br /><br />
-    <input class="submit" type="submit" value="Submit" />
-  </form>
+      <label class="mediumFormText">Password</label><br />
+      <input
+        type="password"
+        #password
+        (keyup)="CheckPassword(password.value)"
+        (keyup)="ComparePasswords(password.value, confirmPassword.value)"
+        (keyup)="getPassword(password.value)"
+      /><br /><br /><br />
+      <p class="authentificationWarningText">{{ passwordMessage }}</p>
+      <label class="mediumFormText">Confirm password</label><br />
+      <input
+        type="password"
+        #confirmPassword
+        (keyup)="ComparePasswords(password.value, confirmPassword.value)"
+      /><br /><br />
+      <p class="authentificationWarningText">{{ confirmPasswordMessage }}</p>
+      <br />
+      <label class="mediumFormText">First name </label><br />
+      <input
+        type="text"
+        #firstName
+        name
+        (keyup)="getFirstName(firstName.value)"
+      />
+      <br /><br /><br />
+      <label class="mediumFormText">Last name </label><br />
+      <input
+        type="text"
+        #lastName
+        name
+        (keyup)="getLastName(lastName.value)"
+      /><br /><br />
+    </form>
+    <div class="form2">
+      <p class="authentificationWarningText">{{ authErrorMessage }}</p>
+      <br />
+      <button mat-raised-button color="primary" (click)="GoToMovies()">
+        Submit
+      </button>
+    </div>
+  </div>
 </div>
