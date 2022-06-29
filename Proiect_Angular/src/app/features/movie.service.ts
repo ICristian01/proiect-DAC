@@ -42,6 +42,14 @@ export class MovieService {
         return 0;
       })
     }
+
+    sortByBudget(): Movie[] {
+      return this.movies.sort((a, b) => a.budget - b.budget);
+    }
+
+    sortByRating(): Movie[] {
+      return this.movies.sort((a, b) => a.rating - b.rating);
+    }
   
     searchMovie(movieName: string): Movie[]{
       return this.movies.filter((item) => item.title.includes(movieName));

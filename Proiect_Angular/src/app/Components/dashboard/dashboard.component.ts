@@ -28,7 +28,22 @@ export class DashboardComponent implements OnInit {
   sortByTitle() {
     this.movies = this.movieService.sortByTitle();
   }
+  sortByYear() {
+    this.movies = this.movieService.sortByYear();
+  }
 
+  sortByDirector() {
+    this.movies = this.movieService.sortByDirector();
+  }
+
+  sortByBudget() {
+    this.movies = this.movieService.sortByBudget();
+  }
+
+  sortByRating() {
+    this.movies = this.movieService.sortByRating();
+  }
+  
   searchMovie() {
     this.movies = this.movieService.searchMovie(this.searchValue);
   }

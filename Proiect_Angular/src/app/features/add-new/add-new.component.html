@@ -1,1 +1,78 @@
-<p>add-new works!</p>
+<h2 mat-dialog-title>Add New Movie</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form" (ngSubmit)="addMovie()">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the movie title</mat-label>
+      <input
+        matInput
+        placeholder="movie@example.com"
+        formControlName="movieTitle"
+        required
+      />
+      <mat-error *ngIf="movieTitle?.invalid">Error!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the release year</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="release year"
+        formControlName="movieReleaseYear"
+        required
+      />
+      <mat-error *ngIf="movieReleaseYear?.invalid">Error!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the director</mat-label>
+      <input
+        matInput
+        placeholder="director"
+        formControlName="movieDirector"
+        required
+      />
+      <mat-error *ngIf="movieDirector?.hasError('required')">Field is required!</mat-error>
+      <mat-error *ngIf="movieDirector?.hasError('not-human-name')">The name is not human!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the budget</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="budget"
+        formControlName="movieBudget"
+        required
+      />
+      <mat-error *ngIf="movieBudget?.invalid">Error!</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter the rating</mat-label>
+      <input
+        type="number"
+        matInput
+        placeholder="personal rating"
+        formControlName="movieRating"
+        required
+      />
+      <mat-error *ngIf="movieRating?.hasError('required')">Field is required!</mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="addMovie()"
+  >
+    Confirm
+  </button>
+</mat-dialog-actions>
