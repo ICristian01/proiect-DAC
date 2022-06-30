@@ -65,6 +65,9 @@
       <mat-error *ngIf="movieRating?.hasError('required')"
         >Field is required!</mat-error
       >
+      <mat-error *ngIf="movieRating?.hasError('not-in-range')"
+        >The rating is not valid!</mat-error
+      >
     </mat-form-field>
   </form>
 </mat-dialog-content>

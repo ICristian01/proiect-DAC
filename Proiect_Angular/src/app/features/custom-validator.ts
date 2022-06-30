@@ -1,8 +1,8 @@
 import { FormControl } from '@angular/forms';
 
 export class CustomValidators {
-  public static specificPrice(control: FormControl) {
-    return control.value < 100 || control.value > 5000
+  public static specificRating(control: FormControl) {
+    return control.value < 11 && control.value > -1
       ? { 'not-in-range': true }
       : null;
   }
